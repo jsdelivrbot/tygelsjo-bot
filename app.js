@@ -255,6 +255,9 @@ function receivedMessage(event) {
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
     switch (messageText) {
+      case 'weather':
+        sendWeatherMessage(senderId);
+        break;
       case 'image':
         sendImageMessage(senderID);
         break;
@@ -525,6 +528,25 @@ function sendTextMessage(recipientId, messageText) {
     },
     message: {
       text: messageText,
+      metadata: "DEVELOPER_DEFINED_METADATA"
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
+
+/*
+ * Send weather message using Send API
+ * 
+ */
+function sendWeatherMessage(receiptId) {
+  var messageData = {
+    receipt: {
+      id: receiptId
+    },
+    message: {
+      text: "Det regnar",
       metadata: "DEVELOPER_DEFINED_METADATA"
     }
   };
