@@ -540,10 +540,10 @@ function sendTextMessage(recipientId, messageText) {
  * Send weather message using Send API
  * 
  */
-function sendWeatherMessage(receiptId) {
+function sendWeatherMessage(recipientId) {
   var messageData = {
-    receipt: {
-      id: receiptId
+    recipient: {
+      id: recipientId
     },
     message: {
       text: "Det regnar",
