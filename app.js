@@ -11,6 +11,7 @@
 'use strict';
 
 const 
+  smhi = require('./smhi'),
   bodyParser = require('body-parser'),
   config = require('config'),
   crypto = require('crypto'),
@@ -255,9 +256,12 @@ function receivedMessage(event) {
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
     switch (messageText) {
-      case 'weather':
-        sendWeatherMessage(senderID);
-        break;
+      case 'Väder':
+        smhi.GetForecast(55.519780, 12.995776)
+          .on("loaded", (data) => {
+            sendTextMessage(senderID, data.timeSeries[0].parameters[11].values[0]);
+        });
+      break;
       case 'image':
         sendImageMessage(senderID);
         break;
@@ -528,25 +532,6 @@ function sendTextMessage(recipientId, messageText) {
     },
     message: {
       text: messageText,
-      metadata: "DEVELOPER_DEFINED_METADATA"
-    }
-  };
-
-  callSendAPI(messageData);
-}
-
-
-/*
- * Send weather message using Send API
- * 
- */
-function sendWeatherMessage(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      text: "Det regnar",
       metadata: "DEVELOPER_DEFINED_METADATA"
     }
   };
