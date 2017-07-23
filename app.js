@@ -256,7 +256,7 @@ function receivedMessage(event) {
     // the text we received.
     switch (messageText) {
       case 'weather':
-        sendWeatherMessage(senderId);
+        sendWeatherMessage(senderID);
         break;
       case 'image':
         sendImageMessage(senderID);
