@@ -1,6 +1,6 @@
 {
-    "appSecret": "500247215ecd7e1a0e544a7856b5686f",
-    "pageAccessToken": "EAAB0Qd8OkXIBALTu5b7SXutZB2Jja1SeYpNtUCe4mdrZBiB8vEuOZAJg4ZChm1srs9Gzea6Q4y5xTUZCrTT1iZBNNH6ZAgOh8otuyd6NRds3dA2MR2hax5vNi1HgxZAGu8hcsuISsvP0QKcIxjX8npwZC9UiroEnl6aUakoR58M9tgwZDZD",
-    "validationToken": "hellogoodbye",
-    "serverURL": "https://young-badlands-19366.herokuapp.com/"
+    "appSecret": "",
+    "pageAccessToken": "",
+    "validationToken": "",
+    "serverURL": ""
 }
