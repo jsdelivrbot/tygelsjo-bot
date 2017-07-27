@@ -11,7 +11,7 @@
 'use strict';
 
 const 
-  smhi = require('./smhi'),
+  smhi = require('smhi').GetForecasts,
   bodyParser = require('body-parser'),
   config = require('config'),
   crypto = require('crypto'),
@@ -257,7 +257,7 @@ function receivedMessage(event) {
     // the text we received.
     switch (messageText) {
       case 'Väder':
-        smhi.GetForecast(55.519780, 12.995776)
+        smhi.GetPointForecast(55.519780, 12.995776)
           .on("loaded", (data) => {
             sendTextMessage(senderID, data.timeSeries[0].parameters[11].values[0]);
         });
