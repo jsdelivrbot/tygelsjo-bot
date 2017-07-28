@@ -11,7 +11,7 @@
 'use strict';
 
 const 
-  smhi = require('smhi').GetForecasts,
+  smhi = require('smhi').Forecasts,
   bodyParser = require('body-parser'),
   config = require('config'),
   crypto = require('crypto'),
