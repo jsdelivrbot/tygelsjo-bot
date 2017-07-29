@@ -416,7 +416,7 @@ function receivedAccountLink(event) {
  * Send an image using the Send API.
  *
  */
-function sendImageMessage(recipientId) {
+function sendImageMessage(recipientId, wsymb) {
   var messageData = {
     recipient: {
       id: recipientId
