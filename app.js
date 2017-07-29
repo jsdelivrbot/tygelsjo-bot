@@ -259,7 +259,8 @@ function receivedMessage(event) {
       case 'Väder':
         smhi.GetPointForecast(55.519780, 12.995776)
           .on("loaded", (data) => {
-            sendTextMessage(senderID, data.timeSeries[0].parameters[11].values[0]);
+            var wsymb = data.timeSeries[0].parameters[18].values[0];
+            sendImageMessage(senderID, wsymb);
         });
       break;
       case 'image':
@@ -424,7 +425,7 @@ function sendImageMessage(recipientId) {
       attachment: {
         type: "image",
         payload: {
-          url: SERVER_URL + "/assets/rift.png"
+          url: SERVER_URL + `weather/${wsymb}.png`
         }
       }
     }
